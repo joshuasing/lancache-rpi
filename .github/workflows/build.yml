@@ -46,7 +46,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/ubuntu-nginx.git
           cd ubuntu-nginx
-          sed -i '1cFROM joshuasing/lancachenet-ubuntu' Dockerfile
+          sed -i '1cFROM joshuasing/lancache-ubuntu' Dockerfile
           cat Dockerfile
           docker buildx build --platform linux/arm/v7,linux/arm64 -t joshuasing/lancache-ubuntu-nginx -t ghcr.io/joshuasing/lancache-ubuntu-nginx --push .
           cd ..
@@ -55,7 +55,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/generic.git
           cd generic
-          sed -i '1cFROM joshuasing/lancachenet-ubuntu-nginx' Dockerfile
+          sed -i '1cFROM joshuasing/lancache-ubuntu-nginx' Dockerfile
           cat Dockerfile
           docker buildx build --platform linux/arm/v7,linux/arm64 -t joshuasing/lancache-generic -t ghcr.io/joshuasing/lancache-generic --push .
           cd ..
@@ -64,7 +64,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/monolithic.git
           cd monolithic
-          sed -i '1cFROM joshuasing/lancachenet-generic' Dockerfile
+          sed -i '1cFROM joshuasing/lancache-generic' Dockerfile
           cat Dockerfile
           cp ../20_cache.conf overlay/etc/nginx/sites-available/cache.conf.d/root/20_cache.conf
           docker buildx build --platform linux/arm/v7,linux/arm64 -t joshuasing/lancache-monolithic -t ghcr.io/joshuasing/lancache-monolithic --push .
@@ -81,7 +81,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/lancache-dns.git
           cd lancache-dns
-          sed -i '1cFROM joshuasing/lancachenet-ubuntu' Dockerfile
+          sed -i '1cFROM joshuasing/lancache-ubuntu' Dockerfile
           cat Dockerfile
           docker buildx build --platform linux/arm/v7,linux/arm64 -t joshuasing/lancache-dns -t ghcr.io/joshuasing/lancache-dns --push .
           cd ..
